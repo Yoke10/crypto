@@ -1,0 +1,38 @@
+Algorithm for Asset Transfer Application
+
+1. *Setup Environment*
+   - Install dependencies.
+   - Set up Hyperledger Fabric test network.
+   - Deploy the chaincode (smart contract) on the network.
+
+2. *Initialize Ledger*
+   - Call the InitLedger function to populate the ledger with initial asset data (e.g., asset1, asset2, asset3, etc.).
+     - Create an array of assets with attributes like ID, Color, Size, Owner, AppraisedValue.
+     - Loop through each asset and use putState() to save each asset on the ledger.
+
+3. *Create Wallet and Admin Credentials*
+   - Set up a wallet to store user credentials.
+   - Enroll the admin user with the Certificate Authority (CA).
+   - Store the admin credentials in the wallet.
+
+4. *Register and Enroll Application User*
+   - Register and enroll the application user using admin credentials.
+   - Store the user credentials in the wallet.
+
+5. *Connect to Blockchain Network*
+   - Create a Gateway instance to connect the application to the Fabric network.
+   - Get reference to the contract deployed on the specified channel.
+
+6. *Submit Transactions*
+   - Use the submitTransaction() API to invoke chaincode functions such as InitLedger, CreateAsset, ReadAsset, UpdateAsset.
+     - Each function interacts with the ledger, performing actions like adding new assets, querying assets, or updating existing assets.
+
+7. *Query the Ledger*
+   - Use evaluateTransaction() to query the ledger for assets.
+     - Example: Use GetAllAssets to retrieve all assets or ReadAsset to get details of a single asset based on its ID.
+
+8. *Output Results*
+   - After invoking a transaction, capture and display the results (e.g., asset details, success confirmation).
+
+9. *Terminate the Network*
+   - Once all operations are done, bring down the test network using the network.sh script.

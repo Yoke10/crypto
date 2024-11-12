@@ -1,0 +1,43 @@
+Step 1: Set Up Docker and Dockerized Node.js Application
+Install Docker: Ensure Docker is installed on your system.
+Create Node.js Application:
+Initialize the Node.js project: Run npm init in your project directory.
+Install necessary packages: express, joi, and nodemon.
+Create Dockerfile:
+Specify the base image: FROM node:9-slim.
+Set the working directory to /app.
+Copy package.json to the working directory and install dependencies (npm install).
+Copy application files and start the application using CMD ["npm", "start"].
+Build Docker Image:
+Use the command: docker build -t <docker-image-name> <file-path>.
+Run Docker Container:
+Execute with: docker run -d -p <HOST_PORT>:<DOCKER_PORT> <docker-image-name>.
+Confirm the container is running with docker ps.
+Step 2: Install Hyperledger Fabric Samples
+Download Fabric Samples:
+Run: curl -sSLO https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh.
+Make the script executable: chmod +x install-fabric.sh.
+Install Docker Containers and Binaries:
+Execute: ./install-fabric.sh docker samples to pull containers.
+To install binaries, run ./install-fabric.sh binary.
+Set Up Test Network:
+Navigate to the test network directory: cd fabric-samples/test-network.
+Bring down any existing network: ./network.sh down.
+Start the network with two peers and one ordering node: ./network.sh up.
+Step 3: Install and Set Up a Private Ethereum Network
+Install Geth (Go Ethereum):
+Add Ethereum repository, update repositories, and install Geth.
+Verify installation using geth version.
+Install TestRPC and Truffle:
+Install TestRPC (NodeJS Ethereum node emulator) for testing.
+Install Truffle, a smart contract build framework.
+Create Genesis Block for Private Network:
+Create a directory (e.g., ~/ETH/pvt) for network data.
+Define the genesis.json file to specify initial block data.
+Initialize the Blockchain:
+Run geth --datadir <path-to-ETH/pvt> init genesis.json to initialize the chain.
+Start Network with Geth Console:
+Use a script like startnode.sh to configure network parameters.
+Attach to the Geth console: geth attach.
+Create Accounts and List Them:
+In Geth console, create accounts and list them with the command account list.

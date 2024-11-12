@@ -1,0 +1,84 @@
+Setup the Blockchain Network
+git clone https://github.com/IBM/blockchain-application-using-fabric-java-sdk
+     
+   - Navigate to the network folder and build the network:
+     bash
+     cd network
+     chmod +x build.sh
+     ./build.sh
+Build the Client (Java)
+cd ../java
+     mvn install
+After the build completes, rename the generated JAR file for simplicity
+Create and Initialize the Channel
+cd ../../network_resources
+     java -cp blockchain-client.jar org.example.network.CreateChannel
+Deploy and Instantiate the Chaincode*
+java -cp blockchain-client.jar org.example.network.DeployInstantiateChaincode
+Register and Enroll Users
+java -cp blockchain-client.jar org.example.user.RegisterEnrollUser
+Invoke and Query the Network
+java -cp blockchain-client.jar org.example.chaincode.invocation.InvokeChaincode
+
+
+
+To set up and interact with a Hyperledger Fabric network using the Fabric Java SDK, follow these simple steps:
+
+### 1. *Setup the Blockchain Network*
+   - Clone the required repository:
+     bash
+     git clone https://github.com/IBM/blockchain-application-using-fabric-java-sdk
+     
+   - Navigate to the network folder and build the network:
+     bash
+     cd network
+     chmod +x build.sh
+     ./build.sh
+     
+
+### 2. *Build the Client (Java)*
+   - Navigate to the java folder:
+     bash
+     cd ../java
+     mvn install
+     
+   - After the build completes, rename the generated JAR file for simplicity:
+     bash
+     cd target
+     cp blockchain-java-sdk-0.0.1-SNAPSHOT-jar-with-dependencies.jar blockchain-client.jar
+     cp blockchain-client.jar ../../network_resources
+     
+
+### 3. *Create and Initialize the Channel*
+   - Create and initialize the channel using the following command:
+     bash
+     cd ../../network_resources
+     java -cp blockchain-client.jar org.example.network.CreateChannel
+     
+   - This will create a channel named mychannel.
+
+### 4. *Deploy and Instantiate the Chaincode*
+   - Deploy and instantiate a sample chaincode called fabcar:
+     bash
+     java -cp blockchain-client.jar org.example.network.DeployInstantiateChaincode
+     
+   - This will deploy and instantiate the chaincode on the channel.
+
+### 5. *Register and Enroll Users*
+   - Register and enroll a user to the network (e.g., Org1):
+     bash
+     java -cp blockchain-client.jar org.example.user.RegisterEnrollUser
+     
+
+### 6. *Invoke and Query the Network*
+   - Invoke the chaincode to add a new asset (e.g., a car):
+     bash
+     java -cp blockchain-client.jar org.example.chaincode.invocation.InvokeChaincode
+     
+   - Query the network to list the assets (e.g., all cars):
+     bash
+     java -cp blockchain-client.jar org.example.chaincode.invocation.QueryChaincode
+     
+
+This setup will enable you to create and test your blockchain network using the Hyperledger Fabric Java SDK.
+

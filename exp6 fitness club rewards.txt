@@ -1,0 +1,30 @@
+Here’s a simpler version of the process to set up a Hyperledger Fabric network, define a rewards smart contract, create a frontend, and connect it to the network.
+
+### Step 1: Set Up Hyperledger Fabric Network
+1. *Install Required Tools*: Install Docker, Docker Compose, and Hyperledger Fabric binaries.
+2. *Set Up Network*: Use the Hyperledger Fabric sample network or follow the setup guide to create your own network.
+3. *Start the Network*: Run Docker containers to start the peers and orderers.
+
+### Step 2: Create Rewards Smart Contract
+1. *Define Contract*: Write a Go contract for managing rewards.
+   - Define IssueReward to store reward points for a member.
+   - Define GetReward to retrieve reward points for a member.
+2. *Deploy Contract*: Install and instantiate the contract on the Fabric network.
+
+### Step 3: Develop a Simple Web Frontend
+1. *Set Up React App*: Create a React app with input fields for memberID and points.
+2. *Define Actions*: Add buttons to issue and retrieve rewards.
+
+### Step 4: Connect Frontend to Hyperledger Fabric
+1. *Use fabric-network SDK*: Set up the fabric-network library to connect to the Fabric network.
+2. *Create Contract Functions*:
+   - Implement issueReward and getReward functions to call the smart contract.
+3. *Integrate with Frontend*: Connect the React component with the backend functions to issue and retrieve rewards.
+
+---
+
+### Summary
+1. Set up the Fabric network.
+2. Write and deploy the rewards smart contract.
+3. Build a React frontend to manage rewards.
+4. Connect the frontend to the Fabric network.
